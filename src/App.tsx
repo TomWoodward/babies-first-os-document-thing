@@ -15,6 +15,8 @@ function App() {
     const content = (await Promise.all(data.content.map(resolveContent))).join('\n');
     const templateData = {...data, document, content};
 
+    // this is intended to be placeholder for https://handlebarsjs.com/guide/
+    // but i think probably it would be easier to just use https://lodash.com/docs/4.17.15#template
     const template = templateData.document
       ? promptTemplate.replace(/{{[#/]{1}document}}/, '')
       : promptTemplate.replace(/{{#document}}[\s\S]+{{\/document}}/, '');
