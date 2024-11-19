@@ -33,9 +33,10 @@ export async function generateOpenAI(promptContent: string) {
 
 export async function generateOllama(promptContent: string) {
   const response = await ollama.generate({
-    model: 'llama3',
+    model: 'llama3.1',
     prompt: promptContent,
     stream: false,
+    options: {num_ctx: 4096}
   });
 
   return response.response;
